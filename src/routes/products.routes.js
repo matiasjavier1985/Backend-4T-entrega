@@ -51,7 +51,7 @@ productsRouter.delete('/products/:id', async(req,res)=>{
 })
 //CREAR UN PRODUCTO (NO NECESITO PASAR ID)
 productsRouter.post('/products',uploader.single('file'),async (req,res)=>{
-    console.log("file")
+    console.log("EORORORORO")
     try{
         if(!req.file){
             return res
