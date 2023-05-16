@@ -4,7 +4,7 @@
     "title": "Bicicleta de montaña",
     "description": "Bicicleta de montaña de alta calidad con frenos de disco y suspensión delantera.",
     "price": 199.99,
-    "thumbnail": "https://example.com/bike001.jpg",
+    "file": "https://example.com/bike001.jpg",
     "code": "BIKE001",
     "stock": 10
   },
@@ -13,7 +13,7 @@
     "title": "Bicicleta de carrera",
     "description": "Bicicleta de carrera ultraligera con marco de carbono y componentes de alta gama.",
     "price": 2999.99,
-    "thumbnail": "https://example.com/bike002.jpg",
+    "file": "https://example.com/bike002.jpg",
     "code": "BIKE002",
     "stock": 5
   },
@@ -22,7 +22,7 @@
     "title": "Bicicleta urbana",
     "description": "Bicicleta urbana cómoda y elegante, ideal para desplazarse por la ciudad.",
     "price": 499.99,
-    "thumbnail": "https://example.com/bike003.jpg",
+    "file": "https://example.com/bike003.jpg",
     "code": "BIKE003",
     "stock": 20
   },
@@ -31,7 +31,7 @@
     "title": "Bicicleta plegable",
     "description": "Bicicleta plegable compacta y ligera, perfecta para llevar en el transporte público.",
     "price": 599.99,
-    "thumbnail": "https://example.com/bike004.jpg",
+    "file": "https://example.com/bike004.jpg",
     "code": "BIKE004",
     "stock": 15
   },
@@ -40,7 +40,7 @@
     "title": "Bicicleta eléctrica",
     "description": "Bicicleta eléctrica potente y resistente, con batería de larga duración.",
     "price": 1499.99,
-    "thumbnail": "https://example.com/bike005.jpg",
+    "file": "https://example.com/bike005.jpg",
     "code": "BIKE005",
     "stock": 8
   },
@@ -49,7 +49,7 @@
     "title": "Bicicleta de carga",
     "description": "Bicicleta de carga con capacidad para transportar objetos pesados y voluminosos.",
     "price": 899.99,
-    "thumbnail": "https://example.com/bike006.jpg",
+    "file": "https://example.com/bike006.jpg",
     "code": "BIKE006",
     "stock": 3
   },
@@ -58,7 +58,7 @@
     "title": "Bicicleta de BMX",
     "description": "Bicicleta de BMX robusta y ágil, ideal para realizar trucos y acrobacias.",
     "price": 299.99,
-    "thumbnail": "https://example.com/bike007.jpg",
+    "file": "https://example.com/bike007.jpg",
     "code": "BIKE007",
     "stock": 12
   },
@@ -67,7 +67,7 @@
     "title": "Bicicleta para niños",
     "description": "Bicicleta para niños con ruedas de entrenamiento y diseño colorido y divertido.",
     "price": 99.99,
-    "thumbnail": "https://example.com/bike008.jpg",
+    "file": "https://example.com/bike008.jpg",
     "code": "BIKE008",
     "stock": 25
   }

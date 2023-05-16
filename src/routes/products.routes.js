@@ -1,5 +1,6 @@
 import express from "express"
 import { ProductManager } from "../productManager.js"
+import {uploader} from "../utils.js"
 export const productsRouter = express.Router() 
 const productManager = new ProductManager('./src/data/data.json')
 //INICIO ENDPOINT PRODUCTS
@@ -40,7 +41,6 @@ productsRouter.get('/', (req,res)=>{
     }
     
 })
-
 //BORRAR UN PRODUCTO (NECEISTO PASAR ID)
 productsRouter.delete('/products/:id', async(req,res)=>{
     const id=req.params.id
@@ -49,16 +49,23 @@ productsRouter.delete('/products/:id', async(req,res)=>{
     .status(200).
     json({status:"success", msg:'producto eliminado',data:deletedProduct})
 })
-
-//CREAR UN PRODUCTO (NO NECESiTO PASAR ID)
-productsRouter.post('/products', async (req,res)=>{
+//CREAR UN PRODUCTO (NO NECESITO PASAR ID)
+productsRouter.post('/products',uploader.single('file'),async (req,res)=>{
+    console.log("file")
     try{
+        if(!req.file){
+            return res
+            .status(400)
+            .json({status:"ERROR", msg:'Suba un File primero'})
+        }
         const producto = req.body
         const createdProduct = await productManager.addProduct(producto)
+        producto.file  =req.file.filename;
+        producto.push(producto)
         if (createdProduct) {
             return res
             .status(201).
-            json({status:"success", msg:'producto creado'})
+            json({status:"success", msg:'Producto creado'})
         }
         else{
             return res
@@ -72,7 +79,7 @@ productsRouter.post('/products', async (req,res)=>{
     }
 })
 
-//MODIFICAR UN PRODUCTO (NECEISTO PASAR ID)
+//MODIFICAR UN PRODUCTO (NECESITO PASAR ID)
 productsRouter.put('/products/:id',async (req,res)=>{
     const id=req.params.id
     const newBody=req.body
