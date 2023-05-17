@@ -16,7 +16,7 @@ app.use(express.static("public"))
 app.get('*', (req,res)=>{
     return res
     .status(404)
-    .json({status:"ERROR", msg:'No se encuentra la Ruta especificada',data:{}})
+    .json({status:"ERROR", msg:'No se encuentra la RUTA especificada',data:{}})
 })
 
 

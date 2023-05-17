@@ -52,7 +52,6 @@ cartsRouter.delete('/:cid', async (req, res) => {
 cartsRouter.post('/', async (req, res) => {
     try {
         const producto = req.body
-        console.log(producto)
         const createdProduct = await cartsManager.addCart(producto)
         if (createdProduct) {
             return res

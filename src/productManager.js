@@ -43,8 +43,8 @@ export class ProductManager{
     }
 
     async addProduct(product) {
-        if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock) {
-            console.log('Faltan campos obligatorios');
+        if (!product.title || !product.description || !product.price || !product.file || !product.code || !product.stock) {
+            console.log('FALTAN CAMPOS OBLIGATORIOS');
             return false
         }
     

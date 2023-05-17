@@ -4,7 +4,7 @@ import {uploader} from "../utils.js"
 export const productsRouter = express.Router() 
 const productManager = new ProductManager('./src/data/data.json')
 //INICIO ENDPOINT PRODUCTS
-productsRouter.get('/products/:id',(req,res)=>{
+productsRouter.get('/:id',(req,res)=>{
     const id=req.params.id
     const productoEncontrado = productManager.getProductById(id)
     return res
@@ -50,18 +50,20 @@ productsRouter.delete('/products/:id', async(req,res)=>{
     json({status:"success", msg:'producto eliminado',data:deletedProduct})
 })
 //CREAR UN PRODUCTO (NO NECESITO PASAR ID)
-productsRouter.post('/products',uploader.single('file'),async (req,res)=>{
-    console.log("EORORORORO")
+productsRouter.post('/',uploader.single('file'),async (req,res)=>{
     try{
         if(!req.file){
             return res
             .status(400)
-            .json({status:"ERROR", msg:'Suba un File primero'})
+            .json({status:"ERROR", msg:'Suba un Archivo primero'})
         }
         const producto = req.body
         const createdProduct = await productManager.addProduct(producto)
         producto.file  =req.file.filename;
-        producto.push(producto)
+
+        this.products.push(producto)
+        console.log(producto)
+
         if (createdProduct) {
             return res
             .status(201).
