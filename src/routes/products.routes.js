@@ -58,11 +58,10 @@ productsRouter.post('/',uploader.single('file'),async (req,res)=>{
             .json({status:"ERROR", msg:'Suba un Archivo primero'})
         }
         const producto = req.body
-        const createdProduct = await productManager.addProduct(producto)
         producto.file  =req.file.filename;
+        console.log(producto);
+        const createdProduct = await productManager.addProduct(producto)
 
-        this.products.push(producto)
-        console.log(producto)
 
         if (createdProduct) {
             return res
@@ -82,7 +81,7 @@ productsRouter.post('/',uploader.single('file'),async (req,res)=>{
 })
 
 //MODIFICAR UN PRODUCTO (NECESITO PASAR ID)
-productsRouter.put('/products/:id',async (req,res)=>{
+productsRouter.put('/:id',async (req,res)=>{
     const id=req.params.id
     const newBody=req.body
     const updatedProduct = await productManager.updateProduct(id, newBody)
