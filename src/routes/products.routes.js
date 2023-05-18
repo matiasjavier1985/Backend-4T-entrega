@@ -42,7 +42,7 @@ productsRouter.get('/', (req,res)=>{
     
 })
 //BORRAR UN PRODUCTO (NECEISTO PASAR ID)
-productsRouter.delete('/products/:id', async(req,res)=>{
+productsRouter.delete('/:id', async(req,res)=>{
     const id=req.params.id
     const deletedProduct = await productManager.deleteProduct(id)
     return res
