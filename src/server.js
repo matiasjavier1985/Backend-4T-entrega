@@ -2,10 +2,11 @@ import express from "express"
 import { cartsRouter } from "./routes/carts.routes.js"
 import { productsRouter } from "./routes/products.routes.js"
 import { __dirname } from "./utils.js"
-import {testPlantillaProducts} from "./routes/test-plantilla-products.routes.js"
+import {homeRouter} from "./routes/home.routes.js"
 import handlebars from "express-handlebars"
 import {Server} from 'socket.io'
 import { testSocketRouter } from "./routes/test-socket.routes.js"
+import { realTimeProductsRouter } from "./routes/realTimeProducts.routes.js"
 
 const app = express()
 const PORT = 8080
@@ -35,16 +36,12 @@ app.engine("handlebars",handlebars.engine())
 app.set("views",__dirname + "/views")
 app.set("view engine", "handlebars")
 
-app.use("/plantillas",testPlantillaProducts)
+app.use("/home",homeRouter)
+app.use("/realtimeproducts",realTimeProductsRouter)
 app.use("test-socket",testSocketRouter)
 
 app.get('*', (req,res)=>{
     return res
     .status(404)
     .json({status:"ERROR", msg:'No se encuentra la RUTA especificada',data:{}})
-})
-
-
-app.listen(PORT,()=>{
-    console.log(`escuchando en el servidor puerto http://localhost:${PORT}`);
 })

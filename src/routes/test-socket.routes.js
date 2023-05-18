@@ -1,5 +1,5 @@
 import express from 'express'
-import { ProductManager } from '../functions/productManager.js'
+import { ProductManager } from "../productManager.js"
 export const testSocketRouter = express.Router()
 
 const productManager = new ProductManager('./src/data/data.json')
