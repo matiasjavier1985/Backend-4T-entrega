@@ -44,7 +44,7 @@ export class ProductManager{
 
     async addProduct(product) {
         console.log(product)
-        if (!product.title || !product.description || !product.price || !product.code || !product.stock) {
+        if (!product.title || !product.description || !product.price || !product.code || !product.stock || !product.file || !product.status || !product.category) {
             console.log('FALTAN CAMPOS OBLIGATORIOS');
            
             return false

@@ -5,7 +5,6 @@ import { __dirname } from "./utils.js"
 import {homeRouter} from "./routes/home.routes.js"
 import handlebars from "express-handlebars"
 import {Server} from 'socket.io'
-import { testSocketRouter } from "./routes/test-socket.routes.js"
 import { realTimeProductsRouter } from "./routes/realTimeProducts.routes.js"
 
 const app = express()
@@ -38,7 +37,6 @@ app.set("view engine", "handlebars")
 
 app.use("/home",homeRouter)
 app.use("/realtimeproducts",realTimeProductsRouter)
-app.use("test-socket",testSocketRouter)
 
 app.get('*', (req,res)=>{
     return res
